@@ -5,14 +5,6 @@ local fiber = require 'fiber'
 local timeout = require 'fiber_timeout'
 local test = (require 'tap').test()
 
-local function test_fn(sleep, retval, exception)
-    fiber.sleep(sleep)
-    if retval == nil then
-        box.error(box.error.PROC_LUA, exception)
-    end
-    return retval
-end
-
 function ftest(sleep, retval, exception)
     fiber.sleep(sleep)
     if retval == nil then
